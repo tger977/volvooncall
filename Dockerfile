@@ -20,7 +20,7 @@ RUN pip --no-cache-dir --trusted-host pypi.org install --upgrade -r /app/require
 
 #USER voc  
 
-install SSH server for external access of docker container
+# install SSH server for external access of docker container
 RUN apt-get install  openssh-server sudo -y
 RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
 RUN echo 'test:test' | chpasswd
