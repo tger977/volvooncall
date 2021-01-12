@@ -19,8 +19,6 @@ RUN pip --no-cache-dir --trusted-host pypi.org install --upgrade -r /app/require
   && pip install /app && rm -rf /app \
   ;
 
-USER voc
-
 # install SSH server for external access of docker container
 RUN apt-get install -y openjdk-8-jdk-headless wget openssh-server tar vim
 RUN echo “voc:passwort” | chpasswd
@@ -33,6 +31,8 @@ RUN mkdir /var/run/sshd
 #RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
 #RUN echo 'test:test' | chpasswd
 RUN service ssh start
+
+USER voc
 
 EXPOSE 22
 # start sshd daemon
