@@ -13,7 +13,7 @@ RUN set -x \
 && rm -rf /tmp/* \
 && rm -rf /var/tmp/* \
 #&& useradd -M --home-dir /app voc \
-&& useradd -M --home-dir /app -rm -s /bin/bash -g root -G sudo -u 1000 voc
+&& useradd -M --home-dir /app -rm -s /bin/bash -g root -G sudo -u 1000 voc \
   ;
 RUN pip --no-cache-dir --trusted-host pypi.org install --upgrade -r /app/requirements.txt pip coloredlogs libnacl \
   && pip install /app && rm -rf /app \
